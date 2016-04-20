@@ -57,6 +57,10 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 32);
 	
+	var _LikeButton = __webpack_require__(/*! ./LikeButton.jsx */ 166);
+	
+	var _LikeButton2 = _interopRequireDefault(_LikeButton);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66,26 +70,31 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
+	    _inherits(App, _React$Component);
 	
-	  function App() {
-	    _classCallCheck(this, App);
+	    function App() {
+	        _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
-	  }
-	
-	  _createClass(App, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'p',
-	        null,
-	        ' Hello Reactttt!'
-	      );
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
 	    }
-	  }]);
 	
-	  return App;
+	    _createClass(App, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    ' Hello React!'
+	                ),
+	                _react2.default.createElement(_LikeButton2.default, null)
+	            );
+	        }
+	    }]);
+	
+	    return App;
 	}(_react2.default.Component);
 	
 	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
@@ -20539,6 +20548,82 @@
 	var ReactMount = __webpack_require__(/*! ./ReactMount */ 156);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
+
+/***/ },
+/* 166 */
+/*!***************************************!*\
+  !*** ./src/client/app/LikeButton.jsx ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LikeButton = function (_React$Component) {
+	  _inherits(LikeButton, _React$Component);
+	
+	  function LikeButton(props) {
+	    _classCallCheck(this, LikeButton);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LikeButton).call(this, props));
+	
+	    _this.state = { likesCount: 0 };
+	    _this.onLike = _this.onLike.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(LikeButton, [{
+	    key: 'onLike',
+	    value: function onLike() {
+	      var newLikesCount = this.state.likesCount + 1;
+	      this.setState({ likesCount: newLikesCount });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Likes : ',
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          this.state.likesCount
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.onLike },
+	            'Like Me'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return LikeButton;
+	}(_react2.default.Component);
+	
+	exports.default = LikeButton;
 
 /***/ }
 /******/ ]);

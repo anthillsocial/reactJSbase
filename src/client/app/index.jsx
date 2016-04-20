@@ -1,9 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
+import LikeButton from './LikeButton.jsx';
 
 class App extends React.Component {
   render () {
-    return <p> Hello Reactttt!</p>;
+    return ( 
+        <div>
+            <p> Hello React!</p>
+            <LikeButton />
+        </div>
+    );
   }
 }
 
